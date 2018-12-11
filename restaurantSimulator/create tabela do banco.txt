@@ -1,0 +1,14 @@
+CREATE TABLE simulacao (
+	idsimulacao		INTEGER, 
+	PESSOAS    		INTEGER,
+	PRATOS	   		INTEGER,
+	SALADA	   		INTEGER,
+	CARBOIDRATOS	        INTEGER,
+	PROTEINAS		INTEGER,
+	SUCO			INTEGER,
+	TEMPOTOTAL		INTEGER,
+	TEMPOMEDIO		FLOAT
+
+);
+
+obs= banco de dados deve ter nome de =  simulator

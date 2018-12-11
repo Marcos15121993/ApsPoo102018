@@ -1,7 +1,6 @@
 package restaurantsimulator;
 
 
-import DAO.DAOSimulacoes;
 import entidades.Algoritmo;
 import entidades.simulacao;
 import javafx.application.Application;
@@ -15,7 +14,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * @author Marcos_Barros
+ *
+ * @author Daniel Dalpasquale
+ * @RA 2003244
+ *
  */
 public class initialSetupScreen extends Application {
 
@@ -41,7 +43,6 @@ public class initialSetupScreen extends Application {
         initLayout();
         iniListeners();
         stage.show();
-
     }
 
     public void initComponents() {
@@ -49,25 +50,26 @@ public class initialSetupScreen extends Application {
         pane.setPrefSize(800, 600);
         scene = new Scene(pane);
 
-        btVoltar = new Button("Voltar");
-        btSimular = new Button("Simular");
+        btVoltar                    = new Button("Voltar");
+        btSimular                   = new Button("Simular");
         lbTelaDeConfiguracaoInicial = new Label("Tela de Configuração Inicial");
-        lbQTDCarboidratos = new Label("Carboidratos");
-        lbQTDPratos = new Label("Pratos");
-        lbQTDPessoas = new Label("Num.Pessoas");
-        lbQTDProteinas = new Label("Proteínas");
-        lbQTDSaladas = new Label("Salada");
-        lbQTDSuco = new Label("Suco");
-        lbTempoMaximo = new Label("Tempo Minimo de Alimentação");
-        lbTempoMinimo = new Label("Tempo Maximo de Alimentação");
-        txQTDPessoas = new TextField("Somente Numeros");
-        txQTDPratos = new TextField("Somente Numeros");
-        txQTDSaladas = new TextField("Somente Numeros");
-        txQTDCarboidratos = new TextField("Somente Numeros");
-        txQTDProteinas = new TextField("Somente Numeros");
-        txQTDSuco = new TextField("Somente Numeros");
-        txTempoMinimo = new TextField("Somente Numeros");
-        txTempoMaximo = new TextField("Somente Numeros");
+        lbQTDCarboidratos           = new Label("Carboidratos");
+        lbQTDPratos                 = new Label("Pratos");
+        lbQTDPessoas                = new Label("Num.Pessoas");
+        lbQTDProteinas              = new Label("Proteínas");
+        lbQTDSaladas                = new Label("Salada");
+        lbQTDSuco                   = new Label("Suco");
+        lbTempoMinimo               = new Label("Tempo Minimo de Alimentação");
+        lbTempoMaximo               = new Label("Tempo Maximo de Alimentação");
+
+        txQTDPessoas                = new TextField("");
+        txQTDPratos                 = new TextField("");
+        txQTDSaladas                = new TextField("");
+        txQTDCarboidratos           = new TextField("");
+        txQTDProteinas              = new TextField("");
+        txQTDSuco                   = new TextField("");
+        txTempoMinimo               = new TextField("");
+        txTempoMaximo               = new TextField("");
 
         pane.getChildren().addAll(
                 btVoltar,
@@ -90,7 +92,6 @@ public class initialSetupScreen extends Application {
                 txTempoMinimo,
                 txTempoMaximo
         );
-
         stage.setScene(scene);
     }
 
@@ -104,8 +105,8 @@ public class initialSetupScreen extends Application {
         lbQTDProteinas.setLayoutX(lbQTDCarboidratos.getLayoutX());
         lbQTDSaladas.setLayoutX(lbQTDCarboidratos.getLayoutX());
         lbQTDSuco.setLayoutX(lbQTDCarboidratos.getLayoutX());
-        lbTempoMaximo.setLayoutX(lbQTDCarboidratos.getLayoutX());
         lbTempoMinimo.setLayoutX(lbQTDCarboidratos.getLayoutX());
+        lbTempoMaximo.setLayoutX(lbQTDCarboidratos.getLayoutX());
 
         txQTDCarboidratos.setLayoutX(190);
         txQTDPessoas.setLayoutX(txQTDCarboidratos.getLayoutX());
@@ -113,8 +114,8 @@ public class initialSetupScreen extends Application {
         txQTDProteinas.setLayoutX(txQTDCarboidratos.getLayoutX());
         txQTDSaladas.setLayoutX(txQTDCarboidratos.getLayoutX());
         txQTDSuco.setLayoutX(txQTDCarboidratos.getLayoutX());
-        txTempoMaximo.setLayoutX(txQTDCarboidratos.getLayoutX());
         txTempoMinimo.setLayoutX(txQTDCarboidratos.getLayoutX());
+        txTempoMaximo.setLayoutX(txQTDCarboidratos.getLayoutX());
 
         lbQTDPessoas.setLayoutY(150);
         lbQTDPratos.setLayoutY(lbQTDPessoas.getLayoutY() + 30);
@@ -146,7 +147,6 @@ public class initialSetupScreen extends Application {
             @Override
             public void handle(ActionEvent event) {
                 new homeScreen().start(stage);
-
             }
         });
 
@@ -156,15 +156,15 @@ public class initialSetupScreen extends Application {
                 simulacao s = new simulacao();
                 s.setPessoas(Integer.valueOf(txQTDPessoas.getText()));
                 s.setPratos(Integer.valueOf(txQTDPratos.getText()));
-                s.setSalada(Integer.valueOf(txQTDPratos.getText()));
-                s.setCarboidratos(Integer.valueOf(txQTDPratos.getText()));
-                s.setProteinas(Integer.valueOf(txQTDPratos.getText()));
-                s.setSuco(Integer.valueOf(txQTDPratos.getText()));
+                s.setSalada(Integer.valueOf(txQTDSaladas.getText()));
+                s.setCarboidratos(Integer.valueOf(txQTDCarboidratos.getText()));
+                s.setProteinas(Integer.valueOf(txQTDProteinas.getText()));
+                s.setSuco(Integer.valueOf(txQTDSuco.getText()));
                 simulacao.setTempoMinimo(Integer.valueOf(txTempoMinimo.getText()));
                 simulacao.setTempoMaximo(Integer.valueOf(txTempoMaximo.getText()));
                 Algoritmo alg = new Algoritmo ();
                 s = alg.metodoSimulador(s);
-                
+
                 new resultScreen().start(stage);
             }
         });

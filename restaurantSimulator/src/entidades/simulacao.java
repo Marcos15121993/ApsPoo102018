@@ -1,8 +1,5 @@
 package entidades;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author Marcos.Barros
@@ -10,12 +7,16 @@ import java.util.List;
  */
 public class simulacao {
 
-    private static int idsimulacao, pessoas, pratos, salada, carboidratos,
+    private static int
+            idsimulacao, pessoas, pratos, salada, carboidratos,
             proteinas, suco, tempoMinimo, tempoMaximo, tempoTotal;
-    private static double tempoMedio;
-    private simulacao simulacao;
-    
-    public simulacao(int id, int pessoas, int pratos, int salada,
+    private static double
+            tempoMedio;
+    private simulacao
+            simulacao;
+
+    public simulacao(
+            int id, int pessoas, int pratos, int salada,
             int carboidratos, int proteinas, int suco,
             int tempoTotal, double tempoMedio) {
 
@@ -30,10 +31,14 @@ public class simulacao {
         simulacao.tempoMedio = tempoMedio;
         simulacao.tempoMinimo = tempoMinimo;
         simulacao.tempoMaximo = tempoMaximo;
-
     }
-    
-    
+
+    /**
+     *
+     * Gets And Sets
+     *
+     */
+
     public static int getIdsimulacao() {
         return idsimulacao;
     }
@@ -59,10 +64,7 @@ public class simulacao {
     }
 
     public simulacao() {
-
     }
-
-    
 
     public int getPessoas() {
         return pessoas;
@@ -124,11 +126,10 @@ public class simulacao {
         return tempoMedio;
     }
 
-    
     public void setTempoMedio(double tempoMedio) {
         simulacao.tempoMedio = tempoMedio;
     }
-
+    
     public int getId() {
         return idsimulacao;
     }
@@ -144,5 +145,5 @@ public class simulacao {
     public void setSimulacao(simulacao simulacao) {
         this.simulacao = simulacao;
     }
-    
+
 }

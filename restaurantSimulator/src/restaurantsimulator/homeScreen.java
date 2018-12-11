@@ -1,7 +1,6 @@
 package restaurantsimulator;
 
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -11,7 +10,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * @author Marcos_Barros
+ *
+ * @author Daniel Dalpasquale
+ * @RA 2003244
+ *
  */
 public class homeScreen extends Application {
 
@@ -35,12 +37,12 @@ public class homeScreen extends Application {
         pane = new AnchorPane();
         pane.setPrefSize(800 , 300);
         scene = new Scene(pane);
-        
+
         btStartSigning          = new Button    ("     Iniciar Simulação    ");
         btSearchResults         = new Button    ("    Consulta de Resultados       ");
         btExit                  = new Button    ("Sair");
         lbInitialSetupScreen    = new Label     ("Tela Inicial");
-        
+
         pane.getChildren().addAll(btStartSigning , btSearchResults , lbInitialSetupScreen, btExit);
         stage.setScene(scene);
     }
@@ -59,7 +61,7 @@ public class homeScreen extends Application {
         btStartSigning.setOnAction(new EventHandler<ActionEvent>() {
             @Override
                 public void handle(ActionEvent event) {
-                   new initialSetupScreen().start(stage);                
+                   new initialSetupScreen().start(stage);
             }
         });
 
@@ -69,14 +71,12 @@ public class homeScreen extends Application {
                 new queryScreenResults().start(stage);
             }
         });
-        
+
         btExit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 new Login().start(stage);
             }
         });
-
-
     }
 }

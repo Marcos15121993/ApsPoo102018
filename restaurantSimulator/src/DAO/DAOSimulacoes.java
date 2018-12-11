@@ -21,8 +21,8 @@ public class DAOSimulacoes {
 
     //Esse metodo vai cadastrar um endereco e vai retornar o cod_endereco
     public void inserirSimulacao(simulacao simulacao) throws SQLException {
-        PreparedStatement sqlStatement = conexao.getConnection().prepareStatement("INSERT INTO simulacao (idsimulacao, pessoas, pratos , salada , carboidratos , proteinas , suco , tempototal , tempomedio)" + 
-                                                                "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        PreparedStatement sqlStatement = conexao.getConnection().prepareStatement("INSERT INTO simulacao (idsimulacao, pessoas, pratos , salada , carboidratos , proteinas , suco , tempototal , tempomedio ,tempominimo , tempomaximo)" + 
+                                                                "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         sqlStatement.setInt(1, simulacao.getPessoas());
         sqlStatement.setInt(2, simulacao.getPratos());
         sqlStatement.setInt(3, simulacao.getSalada());
@@ -32,11 +32,12 @@ public class DAOSimulacoes {
         sqlStatement.setInt(7, simulacao.getPessoas());
         sqlStatement.setInt(8, simulacao.getTempoTotal());
         sqlStatement.setDouble(9, simulacao.getTempoMedio());
-       
+        sqlStatement.setInt(10, simulacao.getTempoMinimo());
+        sqlStatement.setInt(11, simulacao.getTempoMaximo());
         sqlStatement.execute();       
     }
-    
-    
+
+
     public void inserirSimulacaoEspecifica(simulacao b) throws SQLException {
         String sql = "INSERT INTO simulacao (idsimulacao, pessoas, pratos , salada , carboidratos , proteinas , suco , tempototal , tempomedio , tempominimo , tempomaximo) VALUES ('"
                 + b.getPessoas() + "',"
@@ -52,12 +53,8 @@ public class DAOSimulacoes {
 
         Statement stm = conexao.getConnection().createStatement();
         stm.execute(sql);
-        
-     
     }
-    
-    
-    
+
     public simulacao consultaSimulacao(int id) throws SQLException {
         simulacao simulacao = new simulacao();
 

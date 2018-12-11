@@ -27,8 +27,10 @@ public class queryScreenResults extends Application {
     private Label       lbTelaDeConsultaDeResultados;
     
     private TableView   tbResultados;
-    private TableColumn tcPessoas , tcPratos , tcSalada , tcCarboidratos , 
+    private TableColumn 
+                        tcPessoas , tcPratos , tcSalada , tcCarboidratos , 
                         tcProteinas , tcSuco , tcTempoTotal , tcTempoMedio;
+    
     private ComboBox    cbResultados;
     
     private Button      btVoltarTelaInicial;

@@ -1,22 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package restaurantsimulator;
 
+
+import DAO.DAOSimulacoes;
+import entidades.Algoritmo;
+import entidades.simulacao;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import entidades.simulacao;
-import entidades.Algoritmo;
-import DAO.DAOSimulacoes;
-import java.sql.Statement;
 
 public class resultScreen extends Application {
     
@@ -47,7 +41,6 @@ public class resultScreen extends Application {
         initLayout();
         iniListeners();
         stage.show();
-
     }
 
     public void initComponents() {
@@ -102,7 +95,6 @@ public class resultScreen extends Application {
             lbTempoMaximo ,
             lbTempoTotal ,
             lbTempoMedio ,
-            
             lbQTDPessoas , 
             lbQTDPratos , 
             lbQTDSaladas , 
@@ -113,8 +105,7 @@ public class resultScreen extends Application {
             lbQTDTempoMaximo , 
             lbQTDTempoTotal , 
             lbQTDTempoMedio
-            );
-
+        );
         stage.setScene(scene);
     }
 
@@ -152,8 +143,8 @@ public class resultScreen extends Application {
         lbQTDProteinas.setLayoutX(      lbQTDCarboidratos.getLayoutX());
         lbQTDSaladas.setLayoutX(        lbQTDCarboidratos.getLayoutX());
         lbQTDSuco.setLayoutX(           lbQTDCarboidratos.getLayoutX());
-        lbQTDTempoMaximo.setLayoutX(    lbQTDCarboidratos.getLayoutX());
         lbQTDTempoMinimo.setLayoutX(    lbQTDCarboidratos.getLayoutX());
+        lbQTDTempoMaximo.setLayoutX(    lbQTDCarboidratos.getLayoutX());
         lbQTDTempoMedio.setLayoutX(     lbQTDCarboidratos.getLayoutX());
         lbQTDTempoTotal.setLayoutX(     lbQTDCarboidratos.getLayoutX());
        
@@ -182,11 +173,8 @@ public class resultScreen extends Application {
         
         btSalvarNoBanco.setOnAction((ActionEvent event) -> {
             simulacao s = new simulacao();
-            System.out.println("hehe");
             Algoritmo alg = new Algoritmo ();
-            System.out.println("algori");
             s = alg.metodoSimulador(s);
-            System.out.println("asldkjlasdj");
             
             try{
                 System.out.println("alo");
@@ -197,9 +185,6 @@ public class resultScreen extends Application {
             }catch(Exception e){
                 e.printStackTrace();
             }
-            
-
         });
     }
-    
 }
